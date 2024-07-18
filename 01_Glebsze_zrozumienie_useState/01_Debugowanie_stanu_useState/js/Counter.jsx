@@ -5,12 +5,12 @@ export const Counter = () => {
 
   const fetchData = async () => {
     const data = await new Promise((resolve) => setTimeout(() => resolve(10), 2000));
-    count += data;
+    setCount(prev => prev + data);
   };
 
   useEffect(() => {
     console.log('Counter has changed:', count);
-  });
+  }, [count]);
 
   useEffect(() => {
     fetchData();
@@ -21,16 +21,13 @@ export const Counter = () => {
       <p>Counter: {count}</p>
       <button
         onClick={() => {
-          count++;
-          setCount(count);
+          setCount(prev => prev + 1);
         }}
       >
         Increase
       </button>
-      <button
-        onClick={() => {
-          count--;
-          setCount(count);
+      <button onClick={() => {
+          setCount(prev => prev - 1);
         }}
       >
         Decrease
