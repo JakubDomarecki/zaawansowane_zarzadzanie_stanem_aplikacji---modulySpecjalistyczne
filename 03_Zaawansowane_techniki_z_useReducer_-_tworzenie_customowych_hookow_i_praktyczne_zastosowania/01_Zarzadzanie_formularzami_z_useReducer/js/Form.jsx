@@ -1,11 +1,11 @@
 import { useForm } from './hooks/use-form';
 
 export const Form = () => {
-  const { formData, handleChange, resetForm } = useForm({ name: '', email: '' });
+  const { formData, handleChange, resetForm, handleSubmit} = useForm({ name: '', email: '' });
 
   // Dodaj do form event `onSubmit` z odpowiednią metodą
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <input
         type="text"
         name="name"
@@ -21,7 +21,7 @@ export const Form = () => {
         placeholder="Email"
       />
       <button type="submit">Submit</button>
-      {/* Dodaj przycisk do resetowania formularza */}
+      <button type="reset" onClick={resetForm}>Reset</button>
     </form>
   );
 };

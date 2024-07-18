@@ -1,13 +1,14 @@
+
 import { useReducer } from 'react';
 
 const formReducer = (state, action) => {
   switch (action.type) {
     case 'UPDATE_FIELD':
-      // Uzupełnij logikę aktualizacji stanu dla danego pola formularza
-      return { ...state, [action.payload.name]: action.payload.value };
+      return { 
+        ...state, 
+        [action.payload.name]: action.payload.value };
     case 'RESET_FORM':
-      // Uzupełnij logikę resetowania stanu formularza
-      return { ...state }; // Zastąp to odpowiednim kodem
+      return action.payload
     default:
       throw new Error('Unknown action');
   }
@@ -21,11 +22,14 @@ export const useForm = (initialValues) => {
   };
 
   // Zaimplementuj funkcję handleSubmit
-
-  // Dodaj funkcję resetującą formularz
-  const resetForm = () => {
-    // Dodaj logikę resetowania formularza
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log('Form Data Submitted:', formData);
   };
 
-  return { formData, handleChange, resetForm };
+  const resetForm = () => {
+    dispatch({type: 'RESET_FORM', payload: initialValues })
+  };
+
+  return { formData, handleChange, resetForm, handleSubmit };
 };

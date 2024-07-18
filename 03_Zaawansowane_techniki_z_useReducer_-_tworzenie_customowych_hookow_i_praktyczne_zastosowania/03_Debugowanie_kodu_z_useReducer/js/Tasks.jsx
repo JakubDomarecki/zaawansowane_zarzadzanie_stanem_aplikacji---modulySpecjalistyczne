@@ -9,14 +9,25 @@ const tasksReducer = (state, action) => {
   switch (action.type) {
     case 'ADD_TASK':
       const newTask = { id: state.taskCount, name: action.name };
-      return { ...state, tasks: state.tasks.push(newTask), taskCount: state.taskCount++ };
+      return { 
+        ...state, 
+        tasks: [...state.tasks, newTask],
+        taskCount: state.taskCount + 1 };
+
+
     case 'REMOVE_TASK':
-      const filteredTasks = state.tasks.filter((task) => task.id === action.taskId); // Błąd: Nieprawidłowe porównanie
-      return { tasks: filteredTasks, taskCount: state.taskCount - 1 }; // Błąd: Brakujący spread operator
-    case 'RESET_TASKS':
-      return initialState; // Błąd: Powinien być zwrócony nowy obiekt stanu
-    default:
-      return state;
+      const filteredTasks = state.tasks.filter((task) => task.id !== action.taskId);
+      return { 
+        ...state,
+        tasks: filteredTasks, 
+        taskCount: state.taskCount - 1 };
+
+
+
+      case 'RESET_TASKS':
+        return {...initialState};
+      default:
+        return state;
   }
 };
 
@@ -24,8 +35,9 @@ export const Tasks = () => {
   const [state, dispatch] = useReducer(tasksReducer, initialState);
 
   const handleAddTask = (taskName) => {
-    if (taskName) {
-      // Błąd: Brakująca obsługa pustej nazwy zadania
+    if (taskName.length === 0) {
+      return
+    } else {
       dispatch({ type: 'ADD_TASK', name: taskName });
     }
   };
@@ -34,20 +46,20 @@ export const Tasks = () => {
     dispatch({ type: 'REMOVE_TASK', taskId });
   };
 
-  // Błąd: Brakująca funkcja do resetowania zadań
+  const handleResetTasks = () => {
+    dispatch({type: 'RESET_TASKS'})
+  }
 
   return (
     <div>
-      <button onClick={handleAddTask('New Task')}>Add Task</button> {/* Błąd: Nieprawidłowe wywołanie funkcji */}
-      {state.tasks.map(
-        (
-          task,
-          index // Błąd: Nieprawidłowe użycie klucza
-        ) => (
-          <div key={index}>
-            <span>{task.title}</span> {/* Błąd: Nieprawidłowe odwołanie do właściwości obiektu */}
+      <button onClick={() => handleAddTask('New Task')}>Add Task</button> 
+      <button onClick={handleResetTasks}>Reset Tasks</button>
+      {state.tasks.map((task) => (
+          <div key={task.id}>
+            <span>{task.name}</span>
             <button onClick={() => handleRemoveTask(task.id)}>Remove</button>
           </div>
+          
         )
       )}
     </div>
