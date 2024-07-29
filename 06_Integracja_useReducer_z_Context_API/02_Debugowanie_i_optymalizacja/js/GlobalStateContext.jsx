@@ -1,4 +1,4 @@
-import { createContext, useReducer, useContext } from 'react';
+import { createContext, useReducer, useContext, useMemo } from 'react';
 
 const initialState = {
   count: 0,
@@ -19,8 +19,9 @@ const GlobalStateContext = createContext();
 
 export const GlobalStateProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+ const value = useMemo(() =>( {state, dispatch}), [state])
 
-  return <GlobalStateContext.Provider value={{ state, dispatch }}>{children}</GlobalStateContext.Provider>;
+  return <GlobalStateContext.Provider value={value}>{children}</GlobalStateContext.Provider>;
 };
 
 export const useGlobalState = () => useContext(GlobalStateContext);

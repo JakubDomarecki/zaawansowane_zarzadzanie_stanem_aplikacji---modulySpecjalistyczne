@@ -3,14 +3,17 @@ import { createRoot } from 'react-dom/client';
 import { ThemeSelector } from './ThemeSelector';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { NotificationsToggler } from './NotificationsToggler';
+import { UserPreferencesProvider } from './PreferencesContext';
 
 const App = () => {
   return (
     <div>
       <h1>Settings</h1>
-      <ThemeSelector />
-      <LanguageSwitcher />
-      <NotificationsToggler />
+      <UserPreferencesProvider>
+        <ThemeSelector />
+        <LanguageSwitcher />
+        <NotificationsToggler />
+      </UserPreferencesProvider>
     </div>
   );
 };

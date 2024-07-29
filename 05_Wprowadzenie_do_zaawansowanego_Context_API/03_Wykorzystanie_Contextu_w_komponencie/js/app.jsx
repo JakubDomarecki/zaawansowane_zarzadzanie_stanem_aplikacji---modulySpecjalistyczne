@@ -1,16 +1,16 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { TasksContext } from './TasksContext';
+import { TasksProvider} from './TasksContext';
 import { AddTask } from './AddTask';
 import { Filter } from './Filter';
 import { TasksList } from './TasksList';
 
 const App = () => (
-  <TasksContext>
+  <TasksProvider>
     <AddTask />
     <Filter />
     <TasksList />
-  </TasksContext>
+  </TasksProvider>
 );
 
 const container = document.getElementById('app');

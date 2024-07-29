@@ -1,12 +1,17 @@
+import { useUserPreferencesContext } from "./PreferencesContext";
+
 export const LanguageSwitcher = () => {
+
+  const {handleNewLanguage, language} = useUserPreferencesContext();
+
   return (
     <div>
       <h2>Language</h2>
-      <select>
-        <option value="en">English</option>
-        <option value="es">Spanish</option>
-        <option value="fr">French</option>
-        <option value="de">German</option>
+      <select value={language} onChange={handleNewLanguage}>
+        <option value="en" name="en">English</option>
+        <option value="es" name="es">Spanish</option>
+        <option value="fr" name="fr">French</option>
+        <option value="de" name="de">German</option>
       </select>
     </div>
   );
