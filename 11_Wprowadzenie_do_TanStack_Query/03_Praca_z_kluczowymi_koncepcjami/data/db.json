@@ -1,25 +1,49 @@
 {
   "comments": [
     {
-      "id": 1,
+      "id": "1",
       "author": "Jan Kowalski",
       "content": "To jest bardzo interesujący komentarz."
     },
     {
-      "id": 2,
+      "id": "2",
       "author": "Anna Nowak",
       "content": "Zgadzam się z przedmówcą!"
     },
     {
-      "id": 3,
+      "id": "3",
       "author": "Michał Zalewski",
       "content": "Mam zupełnie inne zdanie na ten temat."
     },
     {
-      "id": 4,
+      "id": "4",
       "author": "Katarzyna Wójcik",
       "content": "Ciekawe, jakie będą kolejne kroki w tej sprawie."
-
+    },
+    {
+      "id": "b91a",
+      "author": "User 5.733436301274324",
+      "content": "Comment 0.3243388685295572"
+    },
+    {
+      "id": "023a",
+      "author": "User 7.132750982394747",
+      "content": "Comment 0.6521577461354742"
+    },
+    {
+      "id": "4947",
+      "author": "User 9.328222999303723",
+      "content": "Comment 0.10109933431649609"
+    },
+    {
+      "id": "cdfc",
+      "author": "User 2.5909897194810982",
+      "content": "Comment 0.48739447045981654"
+    },
+    {
+      "id": "19fe",
+      "author": "User 8.02514547424192",
+      "content": "Comment 0.4406442351066939"
     }
   ]
 }

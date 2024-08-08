@@ -1,35 +1,54 @@
 {
   "products": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Eco-friendly Water Bottle",
       "description": "A sustainable water bottle made from recycled materials.",
       "price": 15
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Wireless Bluetooth Headphones",
       "description": "High-quality sound with noise cancellation feature.",
       "price": 120
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Organic Cotton T-shirt",
       "description": "Soft and comfortable t-shirt made from 100% organic cotton.",
       "price": 30
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Smartwatch Fitness Tracker",
       "description": "Keep track of your fitness goals and monitor your health.",
       "price": 199
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Portable Solar Charger",
       "description": "Charge your devices on the go with renewable solar energy.",
       "price": 75
     }
   ],
-  "orders": []
+  "orders": [
+    {
+      "id": "3997",
+      "firstName": "gdfgsdf",
+      "lastName": "gdsgdf",
+      "address": "gdfgd"
+    },
+    {
+      "id": "09eb",
+      "firstName": "fsdf",
+      "lastName": "sdfsd",
+      "address": "fsdfd"
+    },
+    {
+      "id": "a0d4",
+      "firstName": "fsdf",
+      "lastName": "sdf",
+      "address": "sdfsd"
+    }
+  ]
 }

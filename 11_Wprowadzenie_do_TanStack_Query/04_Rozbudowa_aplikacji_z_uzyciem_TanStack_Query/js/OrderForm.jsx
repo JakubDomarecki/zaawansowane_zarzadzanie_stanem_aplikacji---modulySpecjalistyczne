@@ -1,12 +1,44 @@
 import { useForm } from 'react-hook-form';
 import { TextField, Button, Typography } from '@mui/material';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+
+const  PostOrder = async (data) => {
+  try{
+    const resp = await fetch('http://localhost:3001/orders',{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data),
+    })
+    if (!resp.ok) {
+      throw new Error('Failed to place order');
+    }
+    return resp.json();
+  }
+  catch (err) {
+    throw new Error(err.message);
+  }
+}
+
 
 export const OrderForm = () => {
+  const queryClient = useQueryClient();
+
   const { register, handleSubmit, reset } = useForm();
 
+
+  const mutation = useMutation({
+    mutationFn: PostOrder,
+    onSuccess: () => {
+      queryClient.invalidateQueries(['orders']);
+      reset();
+    },
+  })
+
+
   const onSubmit = (data) => {
-    console.log(data);
-    reset();
+    mutation.mutate(data)
   };
 
   return (
