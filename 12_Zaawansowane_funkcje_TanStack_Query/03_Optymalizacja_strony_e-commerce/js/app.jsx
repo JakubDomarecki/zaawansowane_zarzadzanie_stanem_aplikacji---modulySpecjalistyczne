@@ -5,6 +5,7 @@ import { CartList } from './CartList';
 import { OrderForm } from './OrderForm';
 import { CartProvider } from './CartContext';
 import { OrdersList } from './OrdersList';
+import { createRoot } from 'react-dom/client';
 
 const queryClient = new QueryClient();
 

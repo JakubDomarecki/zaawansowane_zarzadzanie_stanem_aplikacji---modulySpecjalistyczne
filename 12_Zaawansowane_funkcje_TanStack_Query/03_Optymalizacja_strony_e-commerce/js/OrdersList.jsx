@@ -8,6 +8,7 @@ export const OrdersList = () => {
       const response = await fetch('http://localhost:3001/orders');
       return response.json();
     },
+    refetchInterval: 5000,
   });
   const queryClient = useQueryClient();
 
