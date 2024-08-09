@@ -1,3 +1,6 @@
+import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
+
 const fetchPosts = async (page = 1, perPage = 10) => {
   const response = await fetch(`https://jsonplaceholder.typicode.com/posts?_page=${page}&_per_page=${perPage}`);
 
@@ -9,8 +12,20 @@ const fetchPosts = async (page = 1, perPage = 10) => {
 };
 
 export const PostsList = () => {
-  // Stwórz stan dla aktualnej strony
-  // Użyj useQuery do pobrania postów z API
+  const [page, setPage] = useState(1);
+
+  const {data: posts, isPending, isError} = useQuery({
+    queryKey: ['posts', page],
+    queryFn: () => fetchPosts(page),
+  })
+
+  const handleNextPage = () => {
+    setPage(prev => prev + 1)
+  }
+
+  const handlePrevPage = () => {
+    setPage(prev => Math.max(prev - 1, 1))
+  }
 
   if (isPending) return <div>Loading...</div>;
   if (isError) return <div>Error occurred</div>;
@@ -23,7 +38,8 @@ export const PostsList = () => {
           <p>{post.body}</p>
         </div>
       ))}
-      {/* Przyciski nawigacji */}
+      <button onClick={handlePrevPage}>Poprzednia strona</button>
+      <button onClick={handleNextPage}>Następna strona</button>
     </div>
   );
 };
