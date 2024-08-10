@@ -1,0 +1,41 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "Pierwszy post",
+      "body": "Treść pierwszego posta"
+    },
+    {
+      "id": "2",
+      "title": "Drugi post",
+      "body": "Treść drugiego posta"
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "postId": 1,
+      "body": "Komentarz do pierwszego posta"
+    },
+    {
+      "id": "2",
+      "postId": 2,
+      "body": "Komentarz do drugiego posta"
+    },
+    {
+      "id": "76bb",
+      "body": "siema\n",
+      "postId": "1"
+    },
+    {
+      "id": "bddb",
+      "body": "ale co",
+      "postId": "2"
+    },
+    {
+      "id": "ff5d",
+      "body": "EE",
+      "postId": "2"
+    }
+  ]
+}

@@ -1,6 +1,19 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-const App = () => null;
+import Posts from './Posts';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+
+const App = () => {
+
+    const queryClient = new QueryClient();
+
+    return (
+        <QueryClientProvider client={queryClient}>
+            <Posts/>
+        </QueryClientProvider>
+    )
+}
 
 const container = document.getElementById('app');
 const root = createRoot(container);
