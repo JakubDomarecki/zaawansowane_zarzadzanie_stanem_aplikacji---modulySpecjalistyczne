@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react';
 /**
  * Path to exercise folder
  */
-const exercisePath = '15_Zaawansowane_techniki_z_Redux_Toolkit/02_Tworzenie_i_Integracja_Custom_Middleware';
+const exercisePath = '16_Best_practices_i_optymalizacja_Redux_Toolkit/01_Praktyczne_Zastosowanie_Best_Practices_w_Redux_Toolkit';
 
 /**
  * Don't change those lines below
