@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react';
 /**
  * Path to exercise folder
  */
-const exercisePath = '15_Zaawansowane_techniki_z_Redux_Toolkit/01_Implementacja_createEntityAdapter';
+const exercisePath = '15_Zaawansowane_techniki_z_Redux_Toolkit/02_Tworzenie_i_Integracja_Custom_Middleware';
 
 /**
  * Don't change those lines below
