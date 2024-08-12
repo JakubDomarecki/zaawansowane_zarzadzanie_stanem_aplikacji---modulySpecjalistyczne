@@ -1,16 +1,22 @@
-import { configureStore, createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { configureStore, createSlice, createAsyncThunk, createEntityAdapter } from '@reduxjs/toolkit';
 
-const productsAdapter = {};
+const productsAdapter = createEntityAdapter({
+  productId: (product) => product.Id,
+})
 
 export const productsSlice = createSlice({
   name: 'products',
   initialState: productsAdapter.getInitialState(),
-  reducers: {},
+  reducers: {
+    productAdded: productsAdapter.addOne,
+    productRemoved: productsAdapter.removeOne,
+    productUpdated: productsAdapter.updateOne,
+  },
 });
 
 const store = configureStore({
   reducer: {
-    products: productsSlice,
+    products: productsSlice.reducer,
   },
 });
 

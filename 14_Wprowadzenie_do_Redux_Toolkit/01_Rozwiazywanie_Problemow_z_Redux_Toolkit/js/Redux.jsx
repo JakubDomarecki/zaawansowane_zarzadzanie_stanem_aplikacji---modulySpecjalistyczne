@@ -20,7 +20,10 @@ export const userSlice = createSlice({
         state.loading = true;
         state.error = null;
       })
-      .addCase(fetchUserData.fulfilled, (state, action) => {})
+      .addCase(fetchUserData.fulfilled, (state, action) => {
+        state.loading = false;
+        state.data = action.payload
+      })
       .addCase(fetchUserData.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
@@ -30,7 +33,7 @@ export const userSlice = createSlice({
 
 const store = configureStore({
   reducer: {
-    user: userSlice,
+    user: userSlice.reducer,
   },
 });
 

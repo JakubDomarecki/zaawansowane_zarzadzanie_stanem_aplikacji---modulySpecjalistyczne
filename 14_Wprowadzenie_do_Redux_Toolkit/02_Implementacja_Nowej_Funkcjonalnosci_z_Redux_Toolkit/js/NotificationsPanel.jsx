@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchNotifications } from './Redux/actions';
-import { clearNotifications } from 'Redux/store';
+import { clearNotifications } from './Redux/store';
 
 export const NotificationsPanel = () => {
   const dispatch = useDispatch();
-  const { notifications, loading } = useSelector((state) => state.notifications);
+  const { data: notifications, loading } = useSelector((state) => state.notifications);
 
   useEffect(() => {
     dispatch(fetchNotifications());
@@ -19,7 +19,7 @@ export const NotificationsPanel = () => {
         <p>Ładowanie...</p>
       ) : (
         <ul>
-          {notifications.map((notification) => (
+          {notifications?.map((notification) => (
             <li key={notification.id}>{notification.body}</li>
           ))}
         </ul>
